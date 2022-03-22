@@ -156,6 +156,8 @@ services:
       - WORKSPACE_ROOT=${WORKSPACE_ROOT}
     ports:
       - 8001:8001
+    labels:
+      shipyard.route: '/'
     volumes:
       - workspace:${WORKSPACE_ROOT}
       - data:${CONFIG_ROOT}
@@ -167,6 +169,8 @@ services:
     restart: unless-stopped
     ports:
       - 8000:80
+    labels:
+      shipyard.route: '/'
     environment:
       - AIRBYTE_ROLE=${AIRBYTE_ROLE:-}
       - AIRBYTE_VERSION=${VERSION}
